@@ -20,6 +20,8 @@ import express from 'express';
 
 var app = express();
 
+app.use(express.static('public'));
+
 app.get('/rss', function (req, res) {
   api(req, res);
 });
