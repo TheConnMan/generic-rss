@@ -1,4 +1,6 @@
-var log4js = require('log4js');
+import { api } from './api/index.js';
+
+import log4js from 'log4js';
 
 if (process.env.FLUENTD_HOST) {
   var tags = (process.env.FLUENTD_TAGS ? process.env.FLUENTD_TAGS.split(',') : []).reduce((allTags, tag) => {
@@ -14,7 +16,7 @@ if (process.env.FLUENTD_HOST) {
   }));
 }
 
-var express = require('express');
+import express from 'express';
 
 var app = express();
 
