@@ -1,0 +1,23 @@
+{
+  "name": "generic-rss",
+  "version": "0.1.0",
+  "description": "RSS feed for generic page crawling",
+  "author": "TheConnMan",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TheConnMan/generic-rss.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fluent-logger": "github:theconnman/fluent-logger-node",
+    "log4js": "^6.7.0",
+    "rss": "^1.2.2"
+  },
+  "resolutions": {
+    "lodash": "4.17.21"
+  }
+}
