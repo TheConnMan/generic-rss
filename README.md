@@ -1,6 +1,6 @@
 # Generic RSS
 
-Use jQuery to turn any page into an RSS feed
+Use jQuery syntax to turn any page into an RSS feed
 
 ## Why?
 
