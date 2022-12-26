@@ -20,6 +20,10 @@ import express from 'express';
 
 var app = express();
 
+app.get('/rss', function (req, res) {
+  api(req, res);
+});
+
 var port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 app.listen(port, function () {

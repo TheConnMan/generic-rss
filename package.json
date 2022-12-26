@@ -15,6 +15,8 @@
     "express": "^4.17.1",
     "fluent-logger": "github:theconnman/fluent-logger-node",
     "log4js": "^6.7.0",
+    "node-fetch": "^3.3.0",
+    "node-html-parser": "^6.1.4",
     "rss": "^1.2.2"
   },
   "resolutions": {
