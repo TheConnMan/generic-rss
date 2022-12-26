@@ -4,7 +4,7 @@ Use jQuery to turn any page into an RSS feed
 
 ## Why?
 
-Some pages are regularly updated, but there's no easy way to check the updates. Using Generic RSS, you can use jQuery syntax to turn any page into an RSS feed. Subscribe using [Slack RSS](https://slack.com/apps/new/A0F81R7U7-rss), [Feedly](https://feedly.com/), or any other RSS feed reader to get notified when a new image is published.
+Some pages are regularly updated, but there's no easy way to check the updates. Using Generic RSS, you can use jQuery syntax to turn any page into an RSS feed. Subscribe using [Slack RSS](https://slack.com/apps/new/A0F81R7U7-rss), [Feedly](https://feedly.com/), or any other RSS feed reader to get notified when a new item is published.
 
 ## Quickstart
 
