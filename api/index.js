@@ -11,6 +11,7 @@ export async function api(req, res) {
   const titleQuery = req.query.titleQuery;
   const descriptionQuery = req.query.descriptionQuery;
   const dateQuery = req.query.dateQuery;
+  logger.info('RSS request for ' + page);
   try {
     const response = await fetch(page);
     const html = await response.text();
