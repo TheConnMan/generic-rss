@@ -27,7 +27,8 @@ export async function api(req, res) {
 
 function formatRSS(page, elements, titleQuery, descriptionQuery, dateQuery, linkQuery) {
   var feed = new RSS({
-    title: `${page} Elements`
+    title: `${page} Elements`,
+    site_url: page
   });
   elements.forEach(element => {
     feed.item({
@@ -46,7 +47,8 @@ function getLink(page, element, linkQuery) {
   }
   const link = element.querySelector(linkQuery).getAttribute('href');
   if (link && link[0] == '/') {
-    return new URL(page).hostname + link;
+    const url = new URL(page)
+    return url.protocol + '//' + url.hostname + link;
   }
   return link;
 }
