@@ -11,20 +11,21 @@ export async function api(req, res) {
   const titleQuery = req.query.titleQuery;
   const descriptionQuery = req.query.descriptionQuery;
   const dateQuery = req.query.dateQuery;
+  const linkQuery = req.query.linkQuery;
   logger.info('RSS request for ' + page);
   try {
     const response = await fetch(page);
     const html = await response.text();
     const parsed = parse(html).querySelectorAll(elementQuery);
     res.setHeader('Content-Type', 'text/xml');
-    res.send(formatRSS(page, parsed, titleQuery, descriptionQuery, dateQuery));
+    res.send(formatRSS(page, parsed, titleQuery, descriptionQuery, dateQuery, linkQuery));
   } catch (e) {
     logger.error(e);
     res.status(500).send(e.message);
   }
 }
 
-function formatRSS(page, elements, titleQuery, descriptionQuery, dateQuery) {
+function formatRSS(page, elements, titleQuery, descriptionQuery, dateQuery, linkQuery) {
   var feed = new RSS({
     title: `${page} Elements`
   });
@@ -33,8 +34,19 @@ function formatRSS(page, elements, titleQuery, descriptionQuery, dateQuery) {
       title: (titleQuery ? element.querySelector(titleQuery) : element).innerText,
       description: descriptionQuery ? element.querySelector(descriptionQuery).innerText : null,
       date: dateQuery ? element.querySelector(dateQuery).innerText : null,
-      url: page
+      url: getLink(page, element, linkQuery)
     });
   });
   return feed.xml();
+}
+
+function getLink(page, element, linkQuery) {
+  if (!linkQuery) {
+    return page;
+  }
+  const link = element.querySelector(linkQuery).getAttribute('href');
+  if (link && link[0] == '/') {
+    return new URL(page).hostname + link;
+  }
+  return link;
 }

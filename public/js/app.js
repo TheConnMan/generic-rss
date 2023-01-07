@@ -6,6 +6,7 @@ app.controller('controller', function($scope, $http, $location) {
   $scope.titleQuery = $location.search().titleQuery || '.blog-title';
   $scope.descriptionQuery = $location.search().descriptionQuery || '.blog-excerpt';
   $scope.dateQuery = $location.search().dateQuery || '.blog-date';
+  $scope.linkQuery = $location.search().linkQuery || '.blog-title a';
 
   $scope.fetchFeed = function() {
     $scope.loading = true;
@@ -18,7 +19,8 @@ app.controller('controller', function($scope, $http, $location) {
         query: $scope.query,
         titleQuery: $scope.titleQuery,
         descriptionQuery: $scope.descriptionQuery,
-        dateQuery: $scope.dateQuery
+        dateQuery: $scope.dateQuery,
+        linkQuery: $scope.linkQuery
       },
       transformResponse: function(data) {
         return new X2JS().xml_str2json(data);
@@ -41,7 +43,8 @@ app.controller('controller', function($scope, $http, $location) {
         query: $scope.query,
         titleQuery: $scope.titleQuery,
         descriptionQuery: $scope.descriptionQuery,
-        dateQuery: $scope.dateQuery
+        dateQuery: $scope.dateQuery,
+        linkQuery: $scope.linkQuery
       })
     }).catch(error => {
       $scope.loading = false;
