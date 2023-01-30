@@ -1,0 +1,12 @@
+version: "2.2"
+
+x-uffizzi:
+  ingress:
+    service: web
+    port: 3000
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
