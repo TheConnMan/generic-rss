@@ -27,7 +27,7 @@ export async function api(req, res) {
 
 function formatRSS(page, elements, titleQuery, descriptionQuery, dateQuery, linkQuery) {
   var feed = new RSS({
-    title: `${page} Elements`,
+    title: `${page} Items`,
     site_url: page
   });
   elements.forEach(element => {
